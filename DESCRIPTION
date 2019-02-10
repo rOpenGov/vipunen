@@ -11,7 +11,8 @@ Description: vipunen is a client package for Vipunen
 License: MIT + file LICENSE
 Imports:
     httr
-Suggests: 
+Suggests:
+    httptest,
     testthat
 Encoding: UTF-8
 LazyData: true
