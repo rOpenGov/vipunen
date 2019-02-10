@@ -1,3 +1,5 @@
+[![Travis build status](https://travis-ci.org/rOpenGov/vipunen.svg?branch=master)](https://travis-ci.org/rOpenGov/vipunen)
+
 # vipunen
 
 `vipunen` is a client package for [Vipunen](https://vipunen.fi/en-gb/), the 
