@@ -1,15 +1,21 @@
 Type: Package
 Package: vipunen
-Title: What the Package Does (Title Case)
+Title: Client Package for Vipunen API
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Date: 2019-02-10
+Authors@R: c(
+  person("Joona", "Lehtomäki", email = "joona.lehtomaki@iki.fi", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7891-0843"))
+)
+Maintainer: Joona Lehtomäki <joona.lehtomaki@iki.fi>
+Description: vipunen is a client package for Vipunen 
+  (https://vipunen.fi/en-gb/), the Finnish education 
+  administration's reporting portal. 
 License: MIT + file LICENSE
 Suggests: 
     testthat
 Encoding: UTF-8
 LazyData: true
+URL: https://ropengov.github.io/vipunen
+BugReports: https://github.com/ropengov/vipunen/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
