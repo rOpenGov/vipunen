@@ -1,0 +1,2 @@
+# exclude print functions
+package_coverage(function_exclusions = "print\\.")
