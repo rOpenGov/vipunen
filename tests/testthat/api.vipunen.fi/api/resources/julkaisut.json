@@ -1,0 +1,286 @@
+[
+    {
+        "name": "tilastovuosi",
+        "type": "number"
+    },
+    {
+        "name": "julkaisuntunnus",
+        "type": "string"
+    },
+    {
+        "name": "kooditSektori",
+        "type": "string"
+    },
+    {
+        "name": "sektori",
+        "type": "string"
+    },
+    {
+        "name": "sektor",
+        "type": "string"
+    },
+    {
+        "name": "sector",
+        "type": "string"
+    },
+    {
+        "name": "kooditOrganisaatio",
+        "type": "string"
+    },
+    {
+        "name": "organisaatio",
+        "type": "string"
+    },
+    {
+        "name": "organisationsv",
+        "type": "string"
+    },
+    {
+        "name": "organisationen",
+        "type": "string"
+    },
+    {
+        "name": "kooditAmmattikorkeakoulu",
+        "type": "string"
+    },
+    {
+        "name": "ammattikorkeakoulu",
+        "type": "string"
+    },
+    {
+        "name": "kooditYliopisto",
+        "type": "string"
+    },
+    {
+        "name": "yliopisto",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisufoorumitaso",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitasosv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitasoen",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisufoorumitaso2011-2014",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2011-2014",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2011-2014sv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2011-2014en",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisufoorumitaso2015->",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2015->",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2015->sv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisufoorumitaso2015->en",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisunPääluokka",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunPääluokka",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunPääluokkasv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunPääluokkaen",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisutyyppi",
+        "type": "string"
+    },
+    {
+        "name": "julkaisutyyppi",
+        "type": "string"
+    },
+    {
+        "name": "julkaisutyyppisv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisutyyppien",
+        "type": "string"
+    },
+    {
+        "name": "kooditJulkaisunKansainvälisyys",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunKansainvälisyys",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunKansainvälisyyssv",
+        "type": "string"
+    },
+    {
+        "name": "julkaisunKansainvälisyysen",
+        "type": "string"
+    },
+    {
+        "name": "kooditKansainvälinenYhteisjulkaisu",
+        "type": "string"
+    },
+    {
+        "name": "kansainvälinenYhteisjulkaisu",
+        "type": "string"
+    },
+    {
+        "name": "kansainvälinenYhteisjulkaisusv",
+        "type": "string"
+    },
+    {
+        "name": "kansainvälinenYhteisjulkaisuen",
+        "type": "string"
+    },
+    {
+        "name": "kooditPäätieteenala",
+        "type": "number"
+    },
+    {
+        "name": "päätieteenala",
+        "type": "string"
+    },
+    {
+        "name": "päätieteenalasv",
+        "type": "string"
+    },
+    {
+        "name": "päätieteenalaen",
+        "type": "string"
+    },
+    {
+        "name": "kooditTieteenala",
+        "type": "number"
+    },
+    {
+        "name": "tieteenala",
+        "type": "string"
+    },
+    {
+        "name": "tieteenalasv",
+        "type": "string"
+    },
+    {
+        "name": "tieteenalaen",
+        "type": "string"
+    },
+    {
+        "name": "kooditOkmOhjauksenAla",
+        "type": "number"
+    },
+    {
+        "name": "okmOhjauksenAla",
+        "type": "string"
+    },
+    {
+        "name": "okmOhjauksenAlasv",
+        "type": "string"
+    },
+    {
+        "name": "okmOhjauksenAlaen",
+        "type": "string"
+    },
+    {
+        "name": "kooditKoulutusala95",
+        "type": "number"
+    },
+    {
+        "name": "koulutusala95",
+        "type": "string"
+    },
+    {
+        "name": "utbildningsområde95",
+        "type": "string"
+    },
+    {
+        "name": "fieldOfEducation95",
+        "type": "string"
+    },
+    {
+        "name": "kooditKoulutusala02",
+        "type": "number"
+    },
+    {
+        "name": "koulutusala02",
+        "type": "string"
+    },
+    {
+        "name": "utbildningsområde02",
+        "type": "string"
+    },
+    {
+        "name": "fieldOfEducation02",
+        "type": "string"
+    },
+    {
+        "name": "yhteisjulk.Yliop.Sairaanhoitopiiri",
+        "type": "string"
+    },
+    {
+        "name": "yhteisjulk.ValtionSektoritutkimuslaitos",
+        "type": "string"
+    },
+    {
+        "name": "yhteisjulk.MuuKotim.Tutkimusorganisaatio",
+        "type": "string"
+    },
+    {
+        "name": "yhteisjulkaisuYrityksenKanssa",
+        "type": "string"
+    },
+    {
+        "name": "julkaisuRinnakkaistallennettu",
+        "type": "string"
+    },
+    {
+        "name": "kooditAvoinSaatavuus",
+        "type": "number"
+    },
+    {
+        "name": "avoinSaatavuus",
+        "type": "string"
+    },
+    {
+        "name": "jufotunnus",
+        "type": "string"
+    },
+    {
+        "name": "lukumaara",
+        "type": "number"
+    }
+]
