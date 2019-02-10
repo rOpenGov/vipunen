@@ -9,6 +9,8 @@ Description: vipunen is a client package for Vipunen
   (https://vipunen.fi/en-gb/), the Finnish education 
   administration's reporting portal. 
 License: MIT + file LICENSE
+Imports:
+    httr
 Suggests: 
     testthat
 Encoding: UTF-8
