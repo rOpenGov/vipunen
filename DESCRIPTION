@@ -10,6 +10,7 @@ Description: vipunen is a client package for Vipunen
   administration's reporting portal. 
 License: MIT + file LICENSE
 Imports:
+    httpcache,
     httr
 Suggests:
     httptest,
