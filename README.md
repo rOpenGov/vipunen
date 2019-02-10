@@ -1,6 +1,7 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis build status](https://travis-ci.org/rOpenGov/vipunen.svg?branch=master)](https://travis-ci.org/rOpenGov/vipunen)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/rOpenGov/vipunen?branch=master&svg=true)](https://ci.appveyor.com/project/rOpenGov/vipunen)
+[![Coverage status](https://codecov.io/gh/rOpenGov/vipunen/branch/master/graph/badge.svg)](https://codecov.io/github/rOpenGov/vipunen?branch=master)
 
 # vipunen
 
