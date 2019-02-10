@@ -61,6 +61,17 @@ vipunen_api <- function(path) {
   return(api_obj)
 }
 
+#' Print method for vipunen_api class
+#'
+#' @param x vipunen_api object
+#' @param ... ignored
+#'
+#' @importFrom utils str
+#'
+#' @return
+#' @export
+#'
+#' @examples
 print.vipunen_api <- function(x, ...) {
   cat("<Vipunen API ", x$path, ">\n", sep = "")
   str(x$content)
