@@ -10,9 +10,19 @@ vipunen_api(path)
 \item{path}{character url to be appended to the host.}
 }
 \value{
-resonse object
+vipunen_api (S3) object with the following attributes:
+\describe{
+\item{content}{a list of parsed JSON content.}
+\item{path}{path provided to get the resonse.}
+\item{response}{the original response object.}
+}
 }
 \description{
-Return a full path to vipunen API with \code{path} url being appended to the
-host path \code{http://api.vipunen.fi}.
+Make a request to one of the Vipunen API's endopoints. The base url is
+http://api.vipunen.fi to which a specific url defined by \code{path} is
+appended.
+}
+\details{
+This is a low-level function intended to be used by other higher level
+functions in the package.
 }
