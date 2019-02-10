@@ -11,7 +11,8 @@ Description: vipunen is a client package for Vipunen
 License: MIT + file LICENSE
 Imports:
     httpcache,
-    httr
+    httr,
+    jsonlite
 Suggests:
     httptest,
     testthat
