@@ -45,7 +45,7 @@ get_api_parameters <- function(path) {
 #'
 #' @param path character url to be appended to the host.
 #'
-#' @importFrom httr content http_error http_type modify_url status_code
+#' @importFrom httr content http_error http_type modify_url status_code user_agent
 #' @importFrom httpcache GET
 #' @importFrom jsonlite fromJSON
 #'
@@ -60,8 +60,10 @@ get_api_parameters <- function(path) {
 #'
 #' @examples
 vipunen_api <- function(path) {
+  ua <- httr::user_agent("https://github.com/rOpenGov/vipunen")
+
   url <- httr::modify_url("http://api.vipunen.fi", path = path)
-  resp <- httpcache::GET(url)
+  resp <- httpcache::GET(url, ua)
 
   response_type <- httr::http_type(resp)
 
