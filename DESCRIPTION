@@ -10,9 +10,13 @@ Description: vipunen is a client package for Vipunen
   administration's reporting portal. 
 License: MIT + file LICENSE
 Imports:
+    dplyr,
     httpcache,
     httr,
-    jsonlite
+    jsonlite,
+    magrittr,
+    tibble,
+    tidyr
 Suggests:
     httptest,
     testthat,
