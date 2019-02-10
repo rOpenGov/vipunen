@@ -1,3 +1,39 @@
+#' get_api_parameters
+#'
+#' Low level function used for getting the valid API query parameters for
+#' a given endpoint.
+#'
+#' @param path character url to be appended to the host.
+#'
+#' @importFrom dplyr bind_rows
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#'
+#' @return tibble of query parameters.
+#' @export
+#'
+#' @examples
+#'  params <- get_api_parameters("api/resources/julkaisut")
+#'
+get_api_parameters <- function(path) {
+
+  # Get the requested response and its content
+  resp <- vipunen_api(path)
+  content <- resp$content
+
+  # Check the length
+  lengths <- unique(unlist(purrr::map(content, length)))
+
+  if (length(lengths) > 1 | lengths != 2) {
+    stop("Parameter response must have two attributes in each element, ",
+         "not ", lengths, call. = FALSE)
+  }
+
+  params <- content %>%
+    dplyr::bind_rows()
+  return(params)
+}
+
 #' vipunen_api
 #'
 #' Make a request to one of the Vipunen API's endopoints. The base url is
