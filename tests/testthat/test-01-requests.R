@@ -8,7 +8,7 @@ RESOURCES <- list("avoin_yliopisto", "erilliset_opinto_oikeudet", "suoritteet",
 
 RESOURCES_URL <- "http://api.vipunen.fi/api/resources"
 
-testthat::context("Requests")
+testthat::context("Generic requests")
 
 httptest::with_mock_api({
 
