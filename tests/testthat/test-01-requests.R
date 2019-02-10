@@ -17,12 +17,17 @@ httptest::with_mock_api({
   test_that("Requests happen", {
     expect_is(httpcache::GET(RESOURCES_URL), "response")
   })
+
   test_that("Vipunen API is correctly parsed", {
     expect_is(vipunen_api(api_url), "vipunen_api")
     expect_identical(vipunen_api(api_url)$content,
                      RESOURCES)
     expect_identical(vipunen_api(api_url)$path,
                      api_url)
+  })
+
+  test_that("Non-existing path causes a well-behaving error", {
+    expect_error(vipunen_api("foo/bar"))
   })
 })
 
