@@ -38,3 +38,7 @@ This is a basic example which shows you how to solve a common problem:
 ## basic example code
 ```
 
+## Contributors
+
++ Joona Lehtomäki <joona.lehtomaki@iki.fi>, package maintainer
++ Vilppu Välimäki, logo design
