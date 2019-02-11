@@ -2,13 +2,21 @@
 % Please edit documentation in R/vipunen-api.R
 \name{get_api_parameters}
 \alias{get_api_parameters}
-\title{Title}
+\title{get_api_parameters}
 \usage{
 get_api_parameters(path)
 }
 \arguments{
-\item{path}{}
+\item{path}{character url to be appended to the host.}
+}
+\value{
+tibble of query parameters.
 }
 \description{
-Title
+Low level function used for getting the valid API query parameters for
+a given endpoint.
+}
+\examples{
+ params <- get_api_parameters("api/resources/julkaisut")
+
 }

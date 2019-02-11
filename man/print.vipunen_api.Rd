@@ -11,6 +11,15 @@
 
 \item{...}{ignored}
 }
+\value{
+vipunen_api object
+}
 \description{
 Print method for vipunen_api class
+}
+\examples{
+  # Get available resources
+  v <- vipunen_api("api/resources")
+  print(v)
+
 }

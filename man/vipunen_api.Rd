@@ -26,3 +26,8 @@ appended.
 This is a low-level function intended to be used by other higher level
 functions in the package.
 }
+\examples{
+  # Get available resources
+  vipunen_api("api/resources")
+
+}
