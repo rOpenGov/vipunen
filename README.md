@@ -5,7 +5,7 @@
 
 # vipunen
 
-<img align="right" width="258" height="258" src="inst/vipunen_logo_258.png">
+<img align="right" src="inst/vipunen_logo_258.png">
 
 `vipunen` is a client package for [Vipunen](https://vipunen.fi/en-gb/), the 
 education administration's reporting portal. The Ministry of Education and 
