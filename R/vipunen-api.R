@@ -59,6 +59,9 @@ get_api_parameters <- function(path) {
 #' @export
 #'
 #' @examples
+#'   # Get available resources
+#'   vipunen_api("api/resources")
+#'
 vipunen_api <- function(path) {
   ua <- httr::user_agent("https://github.com/rOpenGov/vipunen")
 
@@ -106,10 +109,14 @@ vipunen_api <- function(path) {
 #'
 #' @importFrom utils str
 #'
-#' @return
+#' @return vipunen_api object
 #' @export
 #'
 #' @examples
+#'   # Get available resources
+#'   v <- vipunen_api("api/resources")
+#'   print(v)
+#'
 print.vipunen_api <- function(x, ...) {
   cat("<Vipunen API ", x$path, ">\n", sep = "")
   str(x$content)
