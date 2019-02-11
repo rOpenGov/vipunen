@@ -40,5 +40,5 @@ This is a basic example which shows you how to solve a common problem:
 
 ## Contributors
 
-+ Joona Lehtomäki <joona.lehtomaki@iki.fi>
-+ Vilppu Välimäki
++ Joona Lehtomäki <joona.lehtomaki@iki.fi>, package maintainer
++ Vilppu Välimäki, logo design
