@@ -1,4 +1,6 @@
+library(glue)
 library(httptest)
+library(httr)
 
 if (Sys.getenv("MOCK_BYPASS") == "true") {
   with_mock_api <- force
