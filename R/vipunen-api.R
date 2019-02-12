@@ -1,4 +1,4 @@
-#' get_api_parameters
+#' get_parameters
 #'
 #' Low level function used for getting the valid API query parameters for
 #' a given endpoint.
@@ -13,9 +13,9 @@
 #' @export
 #'
 #' @examples
-#'  params <- get_api_parameters("api/resources/julkaisut")
+#'  params <- get_parameters("api/resources/julkaisut")
 #'
-get_api_parameters <- function(path) {
+get_parameters <- function(path) {
 
   # Get the requested response and its content
   resp <- vipunen_api(path)

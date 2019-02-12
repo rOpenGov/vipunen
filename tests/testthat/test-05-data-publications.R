@@ -16,7 +16,7 @@ httptest::with_mock_api({
   })
 
   test_that("High-level functions work for publications", {
-    resp <- get_api_parameters("api/resources/julkaisut")
+    resp <- get_parameters("api/resources/julkaisut")
     expect_equal(ncol(resp), 2)
     expect_identical(names(resp), c("name", "type"))
   })
