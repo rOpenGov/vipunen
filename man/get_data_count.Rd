@@ -7,7 +7,8 @@
 get_data_count(resource)
 }
 \arguments{
-\item{resource}{}
+\item{resource}{character name of the resource. Name provided must be a valid
+resource name.}
 }
 \value{
 numeric count of data items.

@@ -3,7 +3,8 @@
 #' Get the count of data items available through the API, which is useful for
 #' estimating the maximum number of items available.
 #'
-#' @param resource
+#' @param resource character name of the resource. Name provided must be a valid
+#'                 resource name.
 #'
 #' @importFrom glue glue
 #' @importFrom httr content
