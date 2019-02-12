@@ -19,7 +19,4 @@ httptest::with_mock_api({
     expect_equal(get_data_count(count_url), 342)
   })
 
-  test_that("Non-existing path causes a well-behaving error", {
-    expect_error(vipunen_api("foo/bar"))
-  })
 })
