@@ -11,6 +11,7 @@ Description: vipunen is a client package for Vipunen
 License: MIT + file LICENSE
 Imports:
     dplyr,
+    glue,
     httpcache,
     httr,
     jsonlite,
@@ -19,7 +20,6 @@ Imports:
     tibble,
     tidyr
 Suggests:
-    glue,
     httptest,
     testthat,
     covr
