@@ -1,11 +1,44 @@
+#' get_data_count
+#'
+#' Get the count of data items available through the API, which is useful for
+#' estimating the maximum number of items available.
+#'
+#' @param resource
+#'
+#' @importFrom glue glue
+#' @importFrom httr content
+#'
+#' @return numeric count of data items.
+#' @export
+#'
+#' @examples
+#'   get_data_count("avoin_yliopisto")
+#'
+get_data_count <- function(resource) {
+
+  if (!valid_resource(resource)) {
+    stop(resource, " is not a valid resource name", call. = FALSE)
+  }
+
+  # Define a general url pattern in which the resource can be changed
+  count_url <- glue::glue("api/resources/{resource}/data/count")
+
+  # Get the requested response and its content and coerce to numeric
+  count <- vipunen_api(count_url)$content
+
+  return(count)
+}
+
 #' get_parameters
 #'
 #' Low level function used for getting the valid API query parameters for
-#' a given endpoint.
+#' a given resource endpoint.
 #'
-#' @param path character url to be appended to the host.
+#' @param resource character name of the resource. Name provided must be a valid
+#'                 resource name.
 #'
 #' @importFrom dplyr bind_rows
+#' @importFrom httr content
 #' @importFrom magrittr %>%
 #' @importFrom purrr map
 #'
@@ -13,13 +46,19 @@
 #' @export
 #'
 #' @examples
-#'  params <- get_parameters("api/resources/julkaisut")
+#'  params <- get_parameters("julkaisut")
 #'
-get_parameters <- function(path) {
+get_parameters <- function(resource) {
+
+  if (!valid_resource(resource)) {
+    stop(resource, " is not a valid resource name", call. = FALSE)
+  }
+
+  # Resource needs to be appended to an url body
+  resource_url <- paste0("api/resources/", resource)
 
   # Get the requested response and its content
-  resp <- vipunen_api(path)
-  content <- resp$content
+  content <- vipunen_api(resource_url)$content
 
   # Check the length
   lengths <- unique(unlist(purrr::map(content, length)))
