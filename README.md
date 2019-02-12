@@ -17,13 +17,15 @@ The API was opened in August 2017 and is currently still in development phase.
 In this first phase, the content is moslty related to the data collected from 
 universities.
 
-All data available through the API is licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). To cite the data, please use the following format:
+All data available through the API is licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). To cite the data, please use the following format:  
 
-(in Finnish)
+(in Finnish)  
 Vipunen - opetushallinnon tilastopalvelu: Raportin nimi. Tietolähde. Saantitapa: Vipunen-rajapinta \[Viitattu pvm\]
 
-(in English)
-Vipunen - Educational Statistics Finland: Repoert name. Source. Acquired from: Vipunen API \[Date cited\]
+(in English)  
+Vipunen - Educational Statistics Finland: Report name. Source. Acquired from: Vipunen API \[Date cited\]  
+
+TBA: citation example  
 
 For further details about the API (in Finnish only), please see:
 
