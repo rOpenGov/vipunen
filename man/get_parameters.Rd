@@ -4,19 +4,20 @@
 \alias{get_parameters}
 \title{get_parameters}
 \usage{
-get_parameters(path)
+get_parameters(resource)
 }
 \arguments{
-\item{path}{character url to be appended to the host.}
+\item{resource}{character name of the resource. Name provided must be a valid
+resource name.}
 }
 \value{
 tibble of query parameters.
 }
 \description{
 Low level function used for getting the valid API query parameters for
-a given endpoint.
+a given resource endpoint.
 }
 \examples{
- params <- get_parameters("api/resources/julkaisut")
+ params <- get_parameters("julkaisut")
 
 }
