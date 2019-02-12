@@ -16,7 +16,11 @@ httptest::with_mock_api({
   })
 
   test_that("High-level functions work for publications", {
-    resp <- get_parameters("api/resources/julkaisut")
+    # Invalid resource name should raise an error
+    expect_error(get_parameters("foobar"),
+                 "foobar is not a valid resource name")
+
+    resp <- get_parameters("julkaisut")
     expect_equal(ncol(resp), 2)
     expect_identical(names(resp), c("name", "type"))
   })
