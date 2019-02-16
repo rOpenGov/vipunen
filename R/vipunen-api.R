@@ -58,11 +58,10 @@ get_parameters <- function(resource) {
   # Resource needs to be appended to an url body
   resource_url <- paste0("api/resources/", resource)
 
-  # Get the requested response and its content
-  content <- vipunen_api(resource_url)$content
-
-  params <- content %>%
+  # Get the requested response and its content, and bind to a tibble
+  params <- vipunen_api(resource_url)$content %>%
     dplyr::bind_rows()
+
   return(params)
 }
 
