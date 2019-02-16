@@ -121,10 +121,8 @@ vipunen_api <- function(path) {
   if (httr::http_error(resp)) {
     stop(
       sprintf(
-        "Vipunen API request failed [%s]\n%s\n<%s>",
-        httr::status_code(resp),
-        parsed$message,
-        parsed$documentation_url
+        "Vipunen API request failed [%s]",
+        httr::status_code(resp)
       ),
       call. = FALSE
     )

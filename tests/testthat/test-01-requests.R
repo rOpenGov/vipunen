@@ -26,4 +26,11 @@ httptest::with_mock_api({
   test_that("Non-existing path causes a well-behaving error", {
     expect_error(vipunen_api("foo/bar"))
   })
+
+  test_that("HTTP errors are dealt properly", {
+    # NOTE: "suoritteet" is a valid resource name, BUT the mocked response
+    # object is sourced from a manually edited file
+    expect_error(vipunen_api(paste0(api_url, "/suoritteet")),
+                 "Vipunen API request failed")
+  })
 })
