@@ -61,14 +61,6 @@ get_parameters <- function(resource) {
   # Get the requested response and its content
   content <- vipunen_api(resource_url)$content
 
-  # Check the length
-  lengths <- unique(unlist(purrr::map(content, length)))
-
-  if (length(lengths) > 1 | lengths != 2) {
-    stop("Parameter response must have two attributes in each element, ",
-         "not ", lengths, call. = FALSE)
-  }
-
   params <- content %>%
     dplyr::bind_rows()
   return(params)
