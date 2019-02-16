@@ -23,6 +23,10 @@ httptest::with_mock_api({
                      api_url)
   })
 
+  test_that("vipunen_api object prints", {
+    expect_output(print(vipunen_api(api_url)))
+  })
+
   test_that("Non-existing path causes a well-behaving error", {
     expect_error(vipunen_api("foo/bar"))
   })
