@@ -108,14 +108,6 @@ vipunen_api <- function(path) {
   url <- httr::modify_url("http://api.vipunen.fi", path = path)
   resp <- httpcache::GET(url, ua)
 
-  response_type <- httr::http_type(resp)
-
-  if (response_type == "text/html" && grepl("404 Not Found", httr::content(resp))) {
-    stop("Request failed with 404", call. = FALSE)
-  } else if (response_type != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
   parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
 
   if (httr::http_error(resp)) {
