@@ -3,12 +3,18 @@ Package: vipunen
 Title: Client Package for Vipunen API
 Version: 0.1.1.9000
 Date: 2019-02-10
-Authors@R: c(person("Joona", "Lehtomäki", email = "joona.lehtomaki@iki.fi", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7891-0843")))
+Authors@R: 
+    person("Joona", "Lehtomäki", , "joona.lehtomaki@iki.fi", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7891-0843"))
 Maintainer: Joona Lehtomäki <joona.lehtomaki@iki.fi>
-Description: vipunen is a client package for Vipunen 
-  (https://vipunen.fi/en-gb/), the Finnish education 
-  administration's reporting portal. 
+Description: vipunen is a client package for Vipunen
+    (https://vipunen.fi/en-gb/), the Finnish education administration's
+    reporting portal.
 License: MIT + file LICENSE
+URL: https://ropengov.github.io/vipunen,
+    https://ropengov.github.io/vipunen/,
+    https://github.com/rOpenGov/vipunen
+BugReports: https://github.com/rOpenGov/vipunen/issues
 Imports:
     dplyr,
     glue,
@@ -20,12 +26,12 @@ Imports:
     tibble,
     tidyr
 Suggests:
+    covr,
     httptest,
-    testthat,
-    covr
+    testthat
 Encoding: UTF-8
 LazyData: true
-URL: https://ropengov.github.io/vipunen
-BugReports: https://github.com/ropengov/vipunen/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.2
+X-schema.org-isPartOf: http://ropengov.org/
+X-schema.org-keywords: ropengov

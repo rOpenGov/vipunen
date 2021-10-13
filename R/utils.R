@@ -9,11 +9,10 @@
 #' @export
 #'
 #' @examples
-#'   # TRUE
-#'   valid_resource("julkaisut")
-#'   # FALSE
-#'   valid_resource("foobar")
-#'
+#' # TRUE
+#' valid_resource("julkaisut")
+#' # FALSE
+#' valid_resource("foobar")
 valid_resource <- function(x) {
   resources <- unlist(vipunen_api("api/resources")$content)
   return(x %in% resources)
