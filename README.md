@@ -1,11 +1,14 @@
+<!-- badges: start -->
+
+[![rOG-badge](https://ropengov.github.io/rogtemplate/reference/figures/ropengov-badge.svg)](http://ropengov.org/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/rOpenGov/vipunen.svg?branch=master)](https://travis-ci.org/rOpenGov/vipunen)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/rOpenGov/vipunen?branch=master&svg=true)](https://ci.appveyor.com/project/rOpenGov/vipunen)
+[![R build
+status](https://github.com/rOpenGov/vipunen/workflows/R-CMD-check/badge.svg)](https://github.com/rOpenGov/vipunen/actions)
 [![Coverage status](https://codecov.io/gh/rOpenGov/vipunen/branch/master/graph/badge.svg)](https://codecov.io/github/rOpenGov/vipunen?branch=master)
+<!-- badges: end -->
 
-# vipunen
 
-<img align="right" src="inst/vipunen_logo_258.png">
+# vipunen <a href='https://ropengov.github.io/vipunen/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 `vipunen` is a client package for [Vipunen](https://vipunen.fi/en-gb/), the 
 education administration's reporting portal. The Ministry of Education and 
