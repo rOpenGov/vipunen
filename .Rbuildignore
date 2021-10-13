@@ -6,3 +6,5 @@
 ^\.Rproj\.user$
 .covignore
 .github
+^pkgdown$
+^_pkgdown\.yml$

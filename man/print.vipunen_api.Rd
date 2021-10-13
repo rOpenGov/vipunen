@@ -18,8 +18,7 @@ vipunen_api object
 Print method for vipunen_api class
 }
 \examples{
-  # Get available resources
-  v <- vipunen_api("api/resources")
-  print(v)
-
+# Get available resources
+v <- vipunen_api("api/resources")
+print(v)
 }

@@ -18,6 +18,5 @@ Get the count of data items available through the API, which is useful for
 estimating the maximum number of items available.
 }
 \examples{
-  get_data_count("avoin_yliopisto")
-
+get_data_count("avoin_yliopisto")
 }

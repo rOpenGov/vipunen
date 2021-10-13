@@ -18,6 +18,5 @@ Low level function used for getting the valid API query parameters for
 a given resource endpoint.
 }
 \examples{
- params <- get_parameters("julkaisut")
-
+params <- get_parameters("julkaisut")
 }

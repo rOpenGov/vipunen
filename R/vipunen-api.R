@@ -13,10 +13,8 @@
 #' @export
 #'
 #' @examples
-#'   get_data_count("avoin_yliopisto")
-#'
+#' get_data_count("avoin_yliopisto")
 get_data_count <- function(resource) {
-
   if (!valid_resource(resource)) {
     stop(resource, " is not a valid resource name", call. = FALSE)
   }
@@ -47,10 +45,8 @@ get_data_count <- function(resource) {
 #' @export
 #'
 #' @examples
-#'  params <- get_parameters("julkaisut")
-#'
+#' params <- get_parameters("julkaisut")
 get_parameters <- function(resource) {
-
   if (!valid_resource(resource)) {
     stop(resource, " is not a valid resource name", call. = FALSE)
   }
@@ -90,9 +86,8 @@ get_parameters <- function(resource) {
 #' @export
 #'
 #' @examples
-#'   # Get available resources
-#'   vipunen_api("api/resources")
-#'
+#' # Get available resources
+#' vipunen_api("api/resources")
 vipunen_api <- function(path) {
   ua <- httr::user_agent("https://github.com/rOpenGov/vipunen")
 
@@ -134,10 +129,9 @@ vipunen_api <- function(path) {
 #' @export
 #'
 #' @examples
-#'   # Get available resources
-#'   v <- vipunen_api("api/resources")
-#'   print(v)
-#'
+#' # Get available resources
+#' v <- vipunen_api("api/resources")
+#' print(v)
 print.vipunen_api <- function(x, ...) {
   cat("<Vipunen API ", x$path, ">\n", sep = "")
   str(x$content)

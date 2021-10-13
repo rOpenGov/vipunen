@@ -17,9 +17,8 @@ Test if a provided argument is a valid resource in Vipunen API. Valid
 resources are fetched from the API.
 }
 \examples{
-  # TRUE
-  valid_resource("julkaisut")
-  # FALSE
-  valid_resource("foobar")
-
+# TRUE
+valid_resource("julkaisut")
+# FALSE
+valid_resource("foobar")
 }
