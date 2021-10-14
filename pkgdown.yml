@@ -2,7 +2,7 @@ pandoc: 2.7.3
 pkgdown: 1.9000.9000.9000
 pkgdown_sha: 0bdae151df6e15132d5805526da308e3eaf487cd
 articles: {}
-last_built: 2021-10-13T22:46Z
+last_built: 2021-10-14T06:32Z
 urls:
   reference: https://ropengov.github.io/vipunen/reference
   article: https://ropengov.github.io/vipunen/articles
