@@ -1,3 +1,19 @@
+
+#' get_resource_names
+#'
+#' Get the resource names available through the API.
+#'
+#'
+#' @return vector of valid resource names
+#' @export
+#'
+#' @examples
+#' get_resource_names()
+get_resource_names <- function() {
+  return(unlist(vipunen_api("api/resources")$content))
+}
+
+
 #' get_data_count
 #'
 #' Get the count of data items available through the API, which is useful for
@@ -111,6 +127,43 @@ resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
 
   return(api_obj)
 }
+
+
+#' get_data
+#'
+#' Low level function used for getting the data for
+#' a given resource endpoint.
+#'
+#' @param resource character name of the resource. Name provided must be a valid
+#'                 resource name.
+#'
+#' @importFrom dplyr bind_rows
+#' @importFrom purrr map
+#'
+#' @return tibble of query parameters.
+#' @export
+#'
+#' @examples
+#' data <- get_data("julkaisut")
+
+get_data <- function(resource, limit=NULL,) {
+  if (!valid_resource(resource)) {
+    stop(resource, " is not a valid resource name", call. = FALSE)
+  }
+
+  tim = get_data_count(resource)
+
+  # Define a general url pattern in which the resource can be changed
+  data_url <- glue::glue("api/resources/{resource}/data")
+
+#'/count?filter=tilastovuosi==", tilastovuosi)
+#'
+
+  count <- vipunen_api(data_url,timeout = tim/10)$content
+
+  return(count)
+}
+
 
 #' Print method for vipunen_api class
 #'
