@@ -7,7 +7,6 @@
 #'                 resource name.
 #'
 #' @importFrom glue glue
-#' @importFrom httr content
 #'
 #' @return numeric count of data items.
 #' @export
@@ -37,8 +36,6 @@ get_data_count <- function(resource) {
 #'                 resource name.
 #'
 #' @importFrom dplyr bind_rows
-#' @importFrom httr content
-#' @importFrom magrittr %>%
 #' @importFrom purrr map
 #'
 #' @return tibble of query parameters.
@@ -55,11 +52,14 @@ get_parameters <- function(resource) {
   resource_url <- paste0("api/resources/", resource)
 
   # Get the requested response and its content, and bind to a tibble
-  params <- vipunen_api(resource_url)$content %>%
+  params <- vipunen_api(resource_url)$content |>
     dplyr::bind_rows()
 
   return(params)
 }
+
+
+
 
 #' vipunen_api
 #'
@@ -72,7 +72,7 @@ get_parameters <- function(resource) {
 #'
 #' @param path character url to be appended to the host.
 #'
-#' @importFrom httr content http_error http_type modify_url status_code user_agent
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_is_error
 #' @importFrom httpcache GET
 #' @importFrom jsonlite fromJSON
 #'
@@ -88,23 +88,19 @@ get_parameters <- function(resource) {
 #' @examples
 #' # Get available resources
 #' vipunen_api("api/resources")
-vipunen_api <- function(path) {
-  ua <- httr::user_agent("https://github.com/rOpenGov/vipunen")
+vipunen_api <- function(path,timeout = 60) {
+  url <- httr2::request("http://api.vipunen.fi") |>
+    httr2::req_user_agent("https://github.com/rOpenGov/vipunen") |>
+    httr2::req_url_path_append(path) |> httr2::req_cache(tempdir())
 
-  url <- httr::modify_url("http://api.vipunen.fi", path = path)
-  resp <- httpcache::GET(url, ua)
+resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
+                httr2_http = function(cnd) {
+                  rlang::abort("Vipunen API request failed [%s]", parent = cnd)})
 
-  parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
 
-  if (httr::http_error(resp)) {
-    stop(
-      sprintf(
-        "Vipunen API request failed [%s]",
-        httr::status_code(resp)
-      ),
-      call. = FALSE
-    )
-  }
+
+  parsed = resp |> httr2::resp_body_json(simplifyVector = T)
+
 
   api_obj <- structure(
     list(
@@ -132,6 +128,7 @@ vipunen_api <- function(path) {
 #' # Get available resources
 #' v <- vipunen_api("api/resources")
 #' print(v)
+
 print.vipunen_api <- function(x, ...) {
   cat("<Vipunen API ", x$path, ">\n", sep = "")
   str(x$content)
