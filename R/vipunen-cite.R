@@ -1,4 +1,4 @@
-#' @title Crate a Data Bibliography
+#' @title Create a Data Bibliography
 #'
 #' @description
 #' Crates a bibliography from selected resource.
