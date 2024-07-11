@@ -1,6 +1,6 @@
 testthat::context("Publications")
 
-httptest::with_mock_api({
+httptest2::with_mock_api({
   resources_url <- "http://api.vipunen.fi/api/resources"
   api_url <- "api/resources/julkaisut"
 
