@@ -2,10 +2,12 @@ Type: Package
 Package: vipunen
 Title: Client Package for Vipunen API
 Version: 0.1.1.9000
-Date: 2019-02-10
+Date: 2024-07-11
 Authors@R: 
-    person("Joona", "Lehtomäki", , "joona.lehtomaki@iki.fi", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-7891-0843"))
+    c(person("Joona", "Lehtomäki", , "joona.lehtomaki@iki.fi", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7891-0843")),
+    person("Arvi", "Tolvanen", , "arvi.tolvanen@utu.fi", role = c("aut"),
+           comment = c(ORCID = "0009-0001-1590-0795")))
 Maintainer: Joona Lehtomäki <joona.lehtomaki@iki.fi>
 Description: vipunen is a client package for Vipunen
     (https://vipunen.fi/en-gb/), the Finnish education administration's
@@ -17,17 +19,13 @@ URL: https://ropengov.github.io/vipunen,
 BugReports: https://github.com/rOpenGov/vipunen/issues
 Imports:
     dplyr,
-    glue,
-    httpcache,
-    httr,
-    jsonlite,
-    magrittr,
+    httr2,
     purrr,
     tibble,
     tidyr
 Suggests:
     covr,
-    httptest,
+    httptest2,
     testthat
 Encoding: UTF-8
 LazyData: true
