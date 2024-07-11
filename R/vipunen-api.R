@@ -72,9 +72,7 @@ get_parameters <- function(resource) {
 #'
 #' @param path character url to be appended to the host.
 #'
-#' @importFrom httr2 request req_user_agent req_url_path_append resp_is_error
-#' @importFrom httpcache GET
-#' @importFrom jsonlite fromJSON
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_is_error resp_body_json
 #'
 #' @return vipunen_api (S3) object with the following attributes:
 #'        \describe{
