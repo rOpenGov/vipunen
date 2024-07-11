@@ -22,7 +22,6 @@ get_resource_names <- function() {
 #' @param resource character name of the resource. Name provided must be a valid
 #'                 resource name.
 #'
-#' @importFrom glue glue
 #'
 #' @return numeric count of data items.
 #' @export
@@ -35,7 +34,7 @@ get_data_count <- function(resource) {
   }
 
   # Define a general url pattern in which the resource can be changed
-  count_url <- glue::glue("api/resources/{resource}/data/count")
+  count_url <- paste0("api/resources/",resource,"/data/count")
 
   # Get the requested response and its content and coerce to numeric
   count <- vipunen_api(count_url)$content
@@ -146,15 +145,28 @@ resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
 #' @examples
 #' data <- get_data("julkaisut")
 
-get_data <- function(resource, limit=NULL,) {
+get_data <- function(resource, limit=NULL) {
   if (!valid_resource(resource)) {
     stop(resource, " is not a valid resource name", call. = FALSE)
   }
+  if (!is.null(limit)) {
+    if(is.numeric(limit)) {
+      if(limit <0) {
+        stop("Limit parameter is invalid, please select a positive integer.", call. = FALSE)
+      }
+    } else {
+      stop("Limit parameter is invalid, please select a positive integer.", call. = FALSE)
+    }
+  }
+
 
   tim = get_data_count(resource)
 
   # Define a general url pattern in which the resource can be changed
-  data_url <- glue::glue("api/resources/{resource}/data")
+  data_url <- paste0("api/resources/",resource,"/data")
+  if(!is.null(limit)) {
+    data_url <- paste0(data_url,"?limit=",limit)
+  }
 
 #'/count?filter=tilastovuosi==", tilastovuosi)
 #'
