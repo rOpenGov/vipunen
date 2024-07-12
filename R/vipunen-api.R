@@ -102,9 +102,22 @@ get_parameters <- function(resource) {
 #' # Get available resources
 #' vipunen_api("api/resources")
 vipunen_api <- function(path,timeout = 60) {
+
+
+
   url <- httr2::request("http://api.vipunen.fi") |>
     httr2::req_user_agent("https://github.com/rOpenGov/vipunen") |>
     httr2::req_url_path_append(path) |> httr2::req_cache(tempdir())
+
+
+
+if(grepl("/data",url$url) & !grepl("/count",url$url)) {
+  resu =sub(paste0(".*/resources/(.*?)/data.*"), "\\1", url$url)
+  message(paste("Total rows in unfiltered data:",get_data_count(resu),"\n"))
+
+}
+
+
 
 resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
                 httr2_http = function(cnd) {
@@ -171,9 +184,9 @@ get_data <- function(resource, limit=NULL) {
 #'/count?filter=tilastovuosi==", tilastovuosi)
 #'
 
-  count <- vipunen_api(data_url,timeout = tim/10)$content
+  data <- vipunen_api(data_url,timeout = tim/10)$content
 
-  return(count)
+  return(data)
 }
 
 
