@@ -51,7 +51,6 @@ get_data_count <- function(resource) {
 #'                 resource name.
 #'
 #' @importFrom dplyr bind_rows
-#' @importFrom purrr map
 #'
 #' @return tibble of query parameters.
 #' @export
@@ -86,7 +85,7 @@ get_parameters <- function(resource) {
 #' functions in the package.
 #'
 #' @param path character url to be appended to the host.
-#'
+#' @param timeout numeric timeout in seconds
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_is_error resp_body_json
 #'
 #' @return vipunen_api (S3) object with the following attributes:
@@ -121,7 +120,7 @@ if(grepl("/data",url$url) & !grepl("/count",url$url)) {
 
 resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
                 httr2_http = function(cnd) {
-                  rlang::abort("Vipunen API request failed [%s]", parent = cnd)})
+                  stop("Vipunen API request failed [%s]", parent = cnd)})
 
 
 
@@ -148,6 +147,7 @@ resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
 #'
 #' @param resource character name of the resource. Name provided must be a valid
 #'                 resource name.
+#' @param limit numeric amount of rows to fetch
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom purrr map
@@ -155,9 +155,7 @@ resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
 #' @return tibble of query parameters.
 #' @export
 #'
-#' @examples
-#' data <- get_data("julkaisut")
-
+#'
 get_data <- function(resource, limit=NULL) {
   if (!valid_resource(resource)) {
     stop(resource, " is not a valid resource name", call. = FALSE)
@@ -180,9 +178,6 @@ get_data <- function(resource, limit=NULL) {
   if(!is.null(limit)) {
     data_url <- paste0(data_url,"?limit=",limit)
   }
-
-#'/count?filter=tilastovuosi==", tilastovuosi)
-#'
 
   data <- vipunen_api(data_url,timeout = tim/10)$content
 
