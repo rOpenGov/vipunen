@@ -1,4 +1,3 @@
-library(glue)
 library(httptest2)
 library(httr2)
 
