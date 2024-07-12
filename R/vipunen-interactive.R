@@ -7,8 +7,6 @@
 #' @return fetched data and prompt
 #' @export
 #'
-#' @examples
-#'
 vipunen_interactive <- function() {
   print(get_resource_names())
 
@@ -18,7 +16,7 @@ vipunen_interactive <- function() {
 
 
   rows <- switch(
-    menu(c("Yes", "No"),
+    utils::menu(c("Yes", "No"),
          title = "Return all rows?")+1,
     return(invisible()),TRUE,FALSE)
 
