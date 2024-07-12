@@ -69,6 +69,7 @@ This is a basic example which shows you how to solve a common problem:
 ## basic examples
 ## get_resource_names()
 ## get_parameters("koulutusluokitus")
+## get_data_count("koulutusluokitus")
 ## get_data("koulutusluokitus", limit=10)
 
 ```
