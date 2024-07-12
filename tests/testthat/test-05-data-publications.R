@@ -5,7 +5,8 @@ httptest2::with_mock_api({
   api_url <- "api/resources/julkaisut"
 
   test_that("Requests happen", {
-    expect_is(httpcache::GET(resources_url), "response")
+    expect_is(httr2::request(resources_url) |> httr2::req_cache(tempdir()) |> httr2::req_perform(), "httr2_response")
+
   })
 
   test_that("Vipunen API is correctly parsed", {
