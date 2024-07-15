@@ -8,9 +8,8 @@
 #' @export
 #'
 vipunen_interactive <- function() {
-  print(get_resource_names())
-
-  resource_name <- readline(prompt = "Enter resource name for the data: ")
+  resource_name <- utils::select.list(get_resource_names(),
+                                      title = "Enter resource name for the data: ")
   co = get_data_count(resource_name)
   message(paste0("Total number of rows: ",co))
 
