@@ -38,7 +38,7 @@ vipunen_cite <- function(resource,
     format <- "biblatex"
   }
 
-  datadate = max(get_data(resource)$tietojoukkoPaivitettyPvm)
+  datadate <- max(get_data(resource)$tietojoukkoPaivitettyPvm)
 
   urldate <- as.character(Sys.Date())
 

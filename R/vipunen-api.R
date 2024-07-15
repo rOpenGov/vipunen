@@ -118,13 +118,13 @@ if(grepl("/data",url$url) & !grepl("/count",url$url)) {
 
 
 
-resp = tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
+resp <- tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
                 httr2_http = function(cnd) {
                   stop("Vipunen API request failed [%s]", parent = cnd)})
 
 
 
-  parsed = resp |> httr2::resp_body_json(simplifyVector = T)
+  parsed <- resp |> httr2::resp_body_json(simplifyVector = T)
 
 
   api_obj <- structure(
@@ -171,7 +171,7 @@ get_data <- function(resource, limit=NULL) {
   }
 
 
-  tim = get_data_count(resource)
+  tim <- get_data_count(resource)
 
   # Define a general url pattern in which the resource can be changed
   data_url <- paste0("api/resources/",resource,"/data")
