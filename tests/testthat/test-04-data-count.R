@@ -1,6 +1,6 @@
 testthat::context("Data counts")
 
-httptest::with_mock_api({
+httptest2::with_mock_api({
   test_that("Only correct resource names are accepted", {
     # This should raise an error
     expect_error(get_data_count("foobar"))

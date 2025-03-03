@@ -4,10 +4,12 @@
 \alias{vipunen_api}
 \title{vipunen_api}
 \usage{
-vipunen_api(path)
+vipunen_api(path, timeout = 60)
 }
 \arguments{
 \item{path}{character url to be appended to the host.}
+
+\item{timeout}{numeric timeout in seconds}
 }
 \value{
 vipunen_api (S3) object with the following attributes:

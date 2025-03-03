@@ -1,3 +1,19 @@
+
+#' get_resource_names
+#'
+#' Get the resource names available through the API.
+#'
+#'
+#' @return vector of valid resource names
+#' @export
+#'
+#' @examples
+#' get_resource_names()
+get_resource_names <- function() {
+  return(unlist(vipunen_api("api/resources")$content))
+}
+
+
 #' get_data_count
 #'
 #' Get the count of data items available through the API, which is useful for
@@ -6,8 +22,6 @@
 #' @param resource character name of the resource. Name provided must be a valid
 #'                 resource name.
 #'
-#' @importFrom glue glue
-#' @importFrom httr content
 #'
 #' @return numeric count of data items.
 #' @export
@@ -20,7 +34,7 @@ get_data_count <- function(resource) {
   }
 
   # Define a general url pattern in which the resource can be changed
-  count_url <- glue::glue("api/resources/{resource}/data/count")
+  count_url <- paste0("api/resources/",resource,"/data/count")
 
   # Get the requested response and its content and coerce to numeric
   count <- vipunen_api(count_url)$content
@@ -37,9 +51,6 @@ get_data_count <- function(resource) {
 #'                 resource name.
 #'
 #' @importFrom dplyr bind_rows
-#' @importFrom httr content
-#' @importFrom magrittr %>%
-#' @importFrom purrr map
 #'
 #' @return tibble of query parameters.
 #' @export
@@ -55,11 +66,14 @@ get_parameters <- function(resource) {
   resource_url <- paste0("api/resources/", resource)
 
   # Get the requested response and its content, and bind to a tibble
-  params <- vipunen_api(resource_url)$content %>%
+  params <- vipunen_api(resource_url)$content |>
     dplyr::bind_rows()
 
   return(params)
 }
+
+
+
 
 #' vipunen_api
 #'
@@ -71,10 +85,8 @@ get_parameters <- function(resource) {
 #' functions in the package.
 #'
 #' @param path character url to be appended to the host.
-#'
-#' @importFrom httr content http_error http_type modify_url status_code user_agent
-#' @importFrom httpcache GET
-#' @importFrom jsonlite fromJSON
+#' @param timeout numeric timeout in seconds
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_is_error resp_body_json
 #'
 #' @return vipunen_api (S3) object with the following attributes:
 #'        \describe{
@@ -88,23 +100,32 @@ get_parameters <- function(resource) {
 #' @examples
 #' # Get available resources
 #' vipunen_api("api/resources")
-vipunen_api <- function(path) {
-  ua <- httr::user_agent("https://github.com/rOpenGov/vipunen")
+vipunen_api <- function(path,timeout = 60) {
 
-  url <- httr::modify_url("http://api.vipunen.fi", path = path)
-  resp <- httpcache::GET(url, ua)
 
-  parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
 
-  if (httr::http_error(resp)) {
-    stop(
-      sprintf(
-        "Vipunen API request failed [%s]",
-        httr::status_code(resp)
-      ),
-      call. = FALSE
-    )
-  }
+  url <- httr2::request("http://api.vipunen.fi") |>
+    httr2::req_user_agent("https://github.com/rOpenGov/vipunen") |>
+    httr2::req_url_path_append(path) |> httr2::req_cache(tempdir())
+
+
+
+if(grepl("/data",url$url) & !grepl("/count",url$url)) {
+  resu =sub(paste0(".*/resources/(.*?)/data.*"), "\\1", url$url)
+  message(paste("Total rows in unfiltered data:",get_data_count(resu),"\n"))
+
+}
+
+
+
+resp <- tryCatch(url |> httr2::req_timeout(timeout) |> httr2::req_perform(),
+                httr2_http = function(cnd) {
+                  stop("Vipunen API request failed [%s]", parent = cnd)})
+
+
+
+  parsed <- resp |> httr2::resp_body_json(simplifyVector = T)
+
 
   api_obj <- structure(
     list(
@@ -117,6 +138,52 @@ vipunen_api <- function(path) {
 
   return(api_obj)
 }
+
+
+#' get_data
+#'
+#' Low level function used for getting the data for
+#' a given resource endpoint.
+#'
+#' @param resource character name of the resource. Name provided must be a valid
+#'                 resource name.
+#' @param limit numeric amount of rows to fetch
+#'
+#' @importFrom dplyr bind_rows
+#' @importFrom purrr map
+#'
+#' @return tibble of query parameters.
+#' @export
+#'
+#'
+get_data <- function(resource, limit=NULL) {
+  if (!valid_resource(resource)) {
+    stop(resource, " is not a valid resource name", call. = FALSE)
+  }
+  if (!is.null(limit)) {
+    if(is.numeric(limit)) {
+      if(limit <0) {
+        stop("Limit parameter is invalid, please select a positive integer.", call. = FALSE)
+      }
+    } else {
+      stop("Limit parameter is invalid, please select a positive integer.", call. = FALSE)
+    }
+  }
+
+
+  tim <- get_data_count(resource)
+
+  # Define a general url pattern in which the resource can be changed
+  data_url <- paste0("api/resources/",resource,"/data")
+  if(!is.null(limit)) {
+    data_url <- paste0(data_url,"?limit=",limit)
+  }
+
+  data <- vipunen_api(data_url,timeout = tim/10)$content
+
+  return(data)
+}
+
 
 #' Print method for vipunen_api class
 #'
@@ -132,6 +199,7 @@ vipunen_api <- function(path) {
 #' # Get available resources
 #' v <- vipunen_api("api/resources")
 #' print(v)
+
 print.vipunen_api <- function(x, ...) {
   cat("<Vipunen API ", x$path, ">\n", sep = "")
   str(x$content)

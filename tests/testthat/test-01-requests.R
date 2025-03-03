@@ -1,9 +1,9 @@
 testthat::context("Requests")
 
-httptest::with_mock_api({
+httptest2::with_mock_api({
   resources_url <- "http://api.vipunen.fi/api/resources"
   api_url <- "api/resources"
-  resources <- list(
+  resources <- c(
     "avoin_yliopisto", "erilliset_opinto_oikeudet", "suoritteet",
     "toimipisteet", "avoin_amk", "amk_talous", "koulutusluokitus",
     "yo_talous", "suorittanut55", "ytl_arvosanat",
@@ -14,7 +14,8 @@ httptest::with_mock_api({
   )
 
   test_that("Requests happen", {
-    expect_is(httpcache::GET(resources_url), "response")
+    expect_is(httr2::request(resources_url) |> httr2::req_cache(tempdir()) |> httr2::req_perform(), "httr2_response")
+
   })
 
   test_that("Vipunen API is correctly parsed", {
