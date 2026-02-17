@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ropengov.github.io/vipunen/404.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/get_data_count.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/get_parameters.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/print.vipunen_api.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/valid_resource.html</loc>
-  </url>
-  <url>
-    <loc>https://ropengov.github.io/vipunen/reference/vipunen_api.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://ropengov.github.io/vipunen/404.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/LICENSE-text.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/LICENSE.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/authors.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/index.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/news/index.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/get_data_count.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/get_parameters.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/index.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/print.vipunen_api.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/valid_resource.html</loc></url>
+<url><loc>https://ropengov.github.io/vipunen/reference/vipunen_api.html</loc></url>
 </urlset>
+
