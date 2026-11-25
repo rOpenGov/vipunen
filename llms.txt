@@ -35,6 +35,7 @@ For further details about the API (in Finnish only), please see:
 `vipunen` is not yet on CRAN, but you can install it from GitHub with:
 
 ``` r
+
 install.packages("remotes")
 remotes::install_github("ropengov/vipunen")
 ```
@@ -44,6 +45,7 @@ remotes::install_github("ropengov/vipunen")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
+
 ## basic example code
 ```
 

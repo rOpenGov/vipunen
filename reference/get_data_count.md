@@ -26,5 +26,5 @@ numeric count of data items.
 get_data_count("avoin_yliopisto")
 #> No encoding supplied: defaulting to UTF-8.
 #> No encoding supplied: defaulting to UTF-8.
-#> [1] 654
+#> [1] 706
 ```

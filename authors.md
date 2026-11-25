@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rOpenGov/vipunen/blob/actions/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rOpenGov/vipunen/blob/master/DESCRIPTION)
 
 Lehtomäki J (2026). *vipunen: Client Package for Vipunen API*. R package
 version 0.1.1.9000, <https://ropengov.github.io/vipunen>.

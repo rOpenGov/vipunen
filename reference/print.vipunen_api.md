@@ -31,7 +31,8 @@ v <- vipunen_api("api/resources")
 #> No encoding supplied: defaulting to UTF-8.
 print(v)
 #> <Vipunen API api/resources>
-#> List of 42
+#> List of 47
+#>  $ : chr "amm_rahoitus_koonti"
 #>  $ : chr "erilliset_opinto_oikeudet"
 #>  $ : chr "esi_ja_perusopetus_oppilaat_lukuvuosi_koulutusmuoto"
 #>  $ : chr "perusopetus_oppilaat_lukuvuosi_oppilaitos"
@@ -39,6 +40,8 @@ print(v)
 #>  $ : chr "yo_talous2"
 #>  $ : chr "avoin_amk"
 #>  $ : chr "amk_talous"
+#>  $ : chr "amm_rahoitus_palautteet"
+#>  $ : chr "amm_rahoitus_tutkinnot_ja_osaamispisteet"
 #>  $ : chr "lukio_opiskelijat_kuukausi_maakunta"
 #>  $ : chr "suorittanut55"
 #>  $ : chr "harjoittelukoulut"
@@ -48,6 +51,7 @@ print(v)
 #>  $ : chr "taydennyskoulutukset"
 #>  $ : chr "amm_myonnetty_rahoitus"
 #>  $ : chr "opinnaytetyot"
+#>  $ : chr "amm_rahoitus_opiskelijavuodet_lahtotaso_ja_kr"
 #>  $ : chr "amm_rahoitus_opiskelijavuodet"
 #>  $ : chr "julkaisut"
 #>  $ : chr "avoin_yliopisto"
@@ -69,6 +73,7 @@ print(v)
 #>  $ : chr "alayksikkokoodisto"
 #>  $ : chr "koulutuksenkustannukset"
 #>  $ : chr "toimitilat"
+#>  $ : chr "amm_rahoitus_yhteenvetotaulukko"
 #>  $ : chr "muu_henkilosto_amk"
 #>  $ : chr "yamk_tutkinnot"
 #>  $ : chr "perusopetuksen_jalkeinen_koulutus_hakeneet_ja_paikan_vastaanottaneet"
